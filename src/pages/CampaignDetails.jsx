@@ -7,6 +7,7 @@ import { useStateContext } from '../context';
 import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
+import { Helmet } from 'react-helmet';
 
 const CampaignDetails = () => {
   const { state } = useLocation();
@@ -40,6 +41,9 @@ const CampaignDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{state.title}</title>
+      </Helmet>
       {isLoading && <Loader />}
 
       <div

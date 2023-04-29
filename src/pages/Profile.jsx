@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { DisplayCampaigns } from '../components';
 import { useStateContext } from '../context';
+import { Helmet } from 'react-helmet';
 
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,11 +22,16 @@ const Profile = () => {
   }, [address, contract]);
 
   return (
-    <DisplayCampaigns
-      title='My Campaigns'
-      isLoading={isLoading}
-      campaigns={campaigns}
-    />
+    <>
+      <Helmet>
+        <title>My Campaigns</title>
+      </Helmet>
+      <DisplayCampaigns
+        title='My Campaigns'
+        isLoading={isLoading}
+        campaigns={campaigns}
+      />
+    </>
   );
 };
 
